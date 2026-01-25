@@ -28,6 +28,14 @@
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:text="-"
+            android:textSize="14sp"
+            android:layout_marginEnd="4dp"/>
+
+        <Button
+            android:id="@+id/closeButton"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:text="X"
             android:textSize="14sp" />
 
     </LinearLayout>
@@ -38,165 +46,183 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/statusText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Status: Stopped\nPreset: None"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        android:layout_marginBottom="8dp"/>
-
-    <Spinner
-        android:id="@+id/presetSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:background="#FFFFFF"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="4dp">
-
-        <EditText
-            android:id="@+id/nameInput"
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Name"
-            android:inputType="text"
-            android:background="#FFFFFF"
-            android:padding="8dp"
-            android:textSize="12sp"/>
+            android:text="Status: Stopped\nPreset: None"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp"/>
 
-        <EditText
-            android:id="@+id/xInput"
-            android:layout_width="72dp"
+        <Spinner
+            android:id="@+id/presetSpinner"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="X"
-            android:inputType="number"
-            android:background="#FFFFFF"
-            android:padding="8dp"
-            android:textSize="12sp"
-            android:layout_marginStart="4dp"/>
+            android:layout_marginBottom="8dp"
+            android:background="#FFFFFF"/>
 
-        <EditText
-            android:id="@+id/yInput"
-            android:layout_width="72dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Y"
-            android:inputType="number"
-            android:background="#FFFFFF"
-            android:padding="8dp"
-            android:textSize="12sp"
-            android:layout_marginStart="4dp"/>
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/startButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Start"
+                android:textSize="12sp"
+                android:layout_marginEnd="4dp"/>
+
+            <Button
+                android:id="@+id/stopButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Stop"
+                android:textSize="12sp"
+                android:layout_marginStart="4dp"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/editToggleSection"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginBottom="8dp">
+        android:layout_marginTop="8dp">
 
-        <Button
-            android:id="@+id/addUpdateButton"
+        <TextView
+            android:id="@+id/editLabel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Add/Update"
+            android:text="Edit Preset"
+            android:textColor="#FFFFFF"
             android:textSize="12sp"
-            android:layout_marginEnd="4dp"/>
+            android:gravity="center_vertical" />
 
         <Button
-            android:id="@+id/deleteButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Delete"
-            android:textSize="12sp"
-            android:layout_marginStart="4dp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="8dp">
-
-        <EditText
-            android:id="@+id/delayInput"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Delay ms (e.g. 800)"
-            android:inputType="number"
-            android:background="#FFFFFF"
-            android:padding="8dp"
-            android:textSize="12sp"
-            android:layout_marginEnd="4dp"/>
-
-        <Button
-            android:id="@+id/setDelayButton"
+            android:id="@+id/editToggleButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Set Delay"
-            android:textSize="12sp"/>
+            android:text="+"
+            android:textSize="12sp" />
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/editContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_marginTop="8dp">
 
-        <Button
-            android:id="@+id/startButton"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Start"
-            android:textSize="12sp"
-            android:layout_marginEnd="4dp"/>
+            android:orientation="horizontal"
+            android:layout_marginBottom="4dp">
 
-        <Button
-            android:id="@+id/stopButton"
-            android:layout_width="0dp"
+            <EditText
+                android:id="@+id/nameInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Name"
+                android:inputType="text"
+                android:background="#FFFFFF"
+                android:padding="8dp"
+                android:textSize="12sp"/>
+
+            <EditText
+                android:id="@+id/xInput"
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:hint="X"
+                android:inputType="number"
+                android:background="#FFFFFF"
+                android:padding="8dp"
+                android:textSize="12sp"
+                android:layout_marginStart="4dp"/>
+
+            <EditText
+                android:id="@+id/yInput"
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:hint="Y"
+                android:inputType="number"
+                android:background="#FFFFFF"
+                android:padding="8dp"
+                android:textSize="12sp"
+                android:layout_marginStart="4dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Stop"
-            android:textSize="12sp"
-            android:layout_marginStart="4dp"/>
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/addUpdateButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Add/Update"
+                android:textSize="12sp"
+                android:layout_marginEnd="4dp"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            <Button
+                android:id="@+id/deleteButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Delete"
+                android:textSize="12sp"
+                android:layout_marginStart="4dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/delayInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Delay ms (e.g. 800)"
+                android:inputType="number"
+                android:background="#FFFFFF"
+                android:padding="8dp"
+                android:textSize="12sp"
+                android:layout_marginEnd="4dp"/>
+
+            <Button
+                android:id="@+id/setDelayButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Set Delay"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/resetDefaultsButton"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:text="Reset Defaults"
-            android:textSize="12sp"
-            android:layout_marginEnd="4dp"/>
-
-        <Button
-            android:id="@+id/closeButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Close"
-            android:textSize="12sp"
-            android:layout_marginStart="4dp"/>
-
-    </LinearLayout>
+            android:textSize="12sp"/>
 
     </LinearLayout>
 

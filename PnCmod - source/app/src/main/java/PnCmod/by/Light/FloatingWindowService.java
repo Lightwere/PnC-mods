@@ -51,8 +51,12 @@ public class FloatingWindowService extends Service {
     private EditText yInput;
     private EditText delayInput;
     private View contentContainer;
+    private View editContainer;
+    private View editToggleSection;
     private Button minimizeButton;
+    private Button editToggleButton;
     private boolean isMinimized = false;
+    private boolean isEditExpanded = false;
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -197,7 +201,10 @@ public class FloatingWindowService extends Service {
         yInput = floatingView.findViewById(R.id.yInput);
         delayInput = floatingView.findViewById(R.id.delayInput);
         contentContainer = floatingView.findViewById(R.id.contentContainer);
+        editContainer = floatingView.findViewById(R.id.editContainer);
+        editToggleSection = floatingView.findViewById(R.id.editToggleSection);
         minimizeButton = floatingView.findViewById(R.id.minimizeButton);
+        editToggleButton = floatingView.findViewById(R.id.editToggleButton);
 
         adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, buildPresetNames());
@@ -222,6 +229,7 @@ public class FloatingWindowService extends Service {
         deleteButton.setOnClickListener(v -> deletePreset());
         setDelayButton.setOnClickListener(v -> applyDelay());
         minimizeButton.setOnClickListener(v -> toggleMinimize());
+        editToggleButton.setOnClickListener(v -> toggleEditExpand());
         resetDefaultsButton.setOnClickListener(v -> resetToDefaults());
 
         populateForm();
@@ -283,7 +291,22 @@ public class FloatingWindowService extends Service {
     private void toggleMinimize() {
         isMinimized = !isMinimized;
         contentContainer.setVisibility(isMinimized ? View.GONE : View.VISIBLE);
+        editToggleSection.setVisibility(isMinimized ? View.GONE : View.VISIBLE);
+        editContainer.setVisibility(View.GONE); // Always hide edit section when minimizing
+        isEditExpanded = false;
+        editToggleButton.setText("+");
         minimizeButton.setText(isMinimized ? "+" : "-");
+    }
+
+    private void toggleEditExpand() {
+        isEditExpanded = !isEditExpanded;
+        editContainer.setVisibility(isEditExpanded ? View.VISIBLE : View.GONE);
+        editToggleButton.setText(isEditExpanded ? "-" : "+");
+        
+        // Clear focus and restore non-focusable mode when collapsing
+        if (!isEditExpanded) {
+            clearFocusAndRestoreFlags();
+        }
     }
 
     private List<String> buildPresetNames() {
@@ -337,7 +360,21 @@ public class FloatingWindowService extends Service {
         delayInput.setOnFocusChangeListener(focusListener);
     }
 
+    private void clearFocusAndRestoreFlags() {
+        // Clear focus from all EditTexts
+        nameInput.clearFocus();
+        xInput.clearFocus();
+        yInput.clearFocus();
+        delayInput.clearFocus();
+        
+        // Force restore non-focusable mode
+        params.flags |= WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
+        windowManager.updateViewLayout(floatingView, params);
+    }
+
     private void addOrUpdatePreset() {
+        clearFocusAndRestoreFlags();
+        
         String name = nameInput.getText().toString().trim();
         String xStr = xInput.getText().toString().trim();
         String yStr = yInput.getText().toString().trim();
@@ -393,6 +430,8 @@ public class FloatingWindowService extends Service {
     }
 
     private void applyDelay() {
+        clearFocusAndRestoreFlags();
+        
         String delayStr = delayInput.getText().toString().trim();
         if (delayStr.isEmpty()) {
             Toast.makeText(this, "Enter delay in ms", Toast.LENGTH_SHORT).show();
