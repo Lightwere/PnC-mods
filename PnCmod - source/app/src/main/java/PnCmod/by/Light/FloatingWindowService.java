@@ -43,7 +43,7 @@ public class FloatingWindowService extends Service {
     
     private List<ClickPreset> presets = new ArrayList<>();
     private int selectedPresetIndex = 0;
-    private int clickDelay = 1000;
+    private int clickDelay = 100;
 
     private ArrayAdapter<String> adapter;
     private EditText nameInput;
@@ -119,7 +119,7 @@ public class FloatingWindowService extends Service {
             String json = new String(buffer, "UTF-8");
             JSONObject obj = new JSONObject(json);
             JSONArray presetsArray = obj.getJSONArray("presets");
-            clickDelay = obj.optInt("clickDelay", 1000);
+            clickDelay = obj.optInt("clickDelay", 100);
 
             for (int i = 0; i < presetsArray.length(); i++) {
                 JSONObject preset = presetsArray.getJSONObject(i);

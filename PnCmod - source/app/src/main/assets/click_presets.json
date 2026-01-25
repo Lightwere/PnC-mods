@@ -6,5 +6,5 @@
     { "id": 4, "name": "Heal", "x": 910, "y": 2145 },
     { "id": 5, "name": "Train+speedup", "x": 700, "y": 2215 }
   ],
-  "clickDelay": 1000
+  "clickDelay": 100
 }

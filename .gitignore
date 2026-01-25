@@ -1,0 +1,47 @@
+# Gradle
+.gradle/
+build/
+*.apk
+*.aab
+
+# Android Studio
+.idea/
+*.iml
+*.iws
+*.ipr
+local.properties
+
+# App build
+app/build/
+
+# Python
+.venv/
+venv/
+*.py[cod]
+__pycache__/
+*.egg-info/
+dist/
+*.egg
+
+# One-time scripts
+resize_icon.py
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDE
+.classpath
+.project
+.settings/
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Temporary files
+.temp/
+temp/
