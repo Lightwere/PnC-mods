@@ -313,6 +313,28 @@ public class FloatingWindowService extends Service {
         xInput.setText(String.valueOf(preset.x));
         yInput.setText(String.valueOf(preset.y));
         delayInput.setHint("Delay ms (current " + clickDelay + ")");
+
+        // Setup focus listeners to toggle focusable mode
+        setupEditTextFocusListeners();
+    }
+
+    private void setupEditTextFocusListeners() {
+        View.OnFocusChangeListener focusListener = (v, hasFocus) -> {
+            int flags = params.flags;
+            if (hasFocus) {
+                // Remove NOT_FOCUSABLE when editing
+                params.flags = flags & ~WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
+            } else {
+                // Restore NOT_FOCUSABLE when done editing
+                params.flags = flags | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
+            }
+            windowManager.updateViewLayout(floatingView, params);
+        };
+
+        nameInput.setOnFocusChangeListener(focusListener);
+        xInput.setOnFocusChangeListener(focusListener);
+        yInput.setOnFocusChangeListener(focusListener);
+        delayInput.setOnFocusChangeListener(focusListener);
     }
 
     private void addOrUpdatePreset() {
