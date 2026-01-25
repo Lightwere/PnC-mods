@@ -1,23 +1,10 @@
 {
   "presets": [
-    {
-      "id": 1,
-      "name": "Preset 1",
-      "x": 100,
-      "y": 200
-    },
-    {
-      "id": 2,
-      "name": "Preset 2",
-      "x": 400,
-      "y": 600
-    },
-    {
-      "id": 3,
-      "name": "Preset 3",
-      "x": 540,
-      "y": 960
-    }
+    { "id": 1, "name": "Helps - 1st slot", "x": 920, "y": 410 },
+    { "id": 2, "name": "Helps - 2nd slot", "x": 920, "y": 620 },
+    { "id": 3, "name": "Helps - 3rd slot", "x": 920, "y": 830 },
+    { "id": 4, "name": "Heal", "x": 910, "y": 2145 },
+    { "id": 5, "name": "Train+speedup", "x": 700, "y": 2215 }
   ],
   "clickDelay": 1000
 }
