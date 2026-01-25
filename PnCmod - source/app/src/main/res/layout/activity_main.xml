@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ready"
+        android:textSize="16sp"
+        android:paddingBottom="12dp" />
+
+    <Button
+        android:id="@+id/pickButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pick File (SAF)" />
+
+    <Button
+        android:id="@+id/replaceButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Replace File"
+        android:layout_marginTop="12dp" />
+
+    <Button
+        android:id="@+id/restoreButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Restore Original"
+        android:layout_marginTop="12dp" />
+
+    <Button
+        android:id="@+id/autoClickerButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Launch Auto-Clicker"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:id="@+id/hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tip: Allow storage access if prompted. Use Pick File to grant access on Android 11+."
+        android:textSize="14sp"
+        android:paddingTop="16dp" />
+
+</LinearLayout>
