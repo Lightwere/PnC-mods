@@ -52,7 +52,7 @@ $env:JAVA_HOME="C:\Program Files\Eclipse Adoptium\jdk-17.0.17.10-hotspot"
 ## Usage
 
 ### File Swapper
-1. **OPTIONAL** Tap "Pick File (SAF)" to select the target game file (usual path `/storage/emulated/0/Android/data/com.global.tmslg/files/ABAsset/`) will need to do it only once
+1. *optional* Tap "Pick File (SAF)" to select the target game file (usual path `/storage/emulated/0/Android/data/com.global.tmslg/files/ABAsset/`) will need to do it only once
 2. Tap "Replace File" to swap with the bundled version
 3. Tap "Restore Original" to revert changes
 
@@ -75,6 +75,11 @@ You can manually edit `click_presets.json` to add/modify presets.
 - **Target SDK**: 34 (Android 14)
 - **Architecture**: Services-based with floating overlay UI
 - **Click Method**: Accessibility Service gesture dispatch API
+
+
+## TODO list:
+- **Automatic Custom Avatar Maker** (*might be impossible on stock Android phones*)
+- **Custom castle skins, stickers, emotes, background images** (*most likely from ready to use repo as automatisation would be impossible or really hard to do*)
 
 ## License
 See [LICENSE](LICENSE) file for details.
