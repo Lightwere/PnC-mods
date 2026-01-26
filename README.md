@@ -5,8 +5,8 @@ A dual-purpose (for now) Android utility app for Puzzle & Conquest
 ## Features
 
 ### Transparent tiles
-# Used in Matching Master (this mahjong style game)
-# Replaces game asset files with bundled versions while keeping backups for easy restoration.
+Used in Matching Master (this mahjong style game)
+Replaces game asset files with bundled versions while keeping backups for easy restoration.
 - Uses Storage Access Framework (SAF) for safe file operations
 - Automatically creates backup file
 - Easy to use, only one click
