@@ -13,8 +13,9 @@ Replaces game asset files with bundled versions while keeping backups for easy r
 - Easy to use, only one click
 
 ### Auto-Clicker
-# Self explanatory
-# Automated clicking tool with customizable presets and draggable floating window.
+Self explanatory
+
+Automated clicking tool with customizable presets and draggable floating window.
 - **Preset Management**: Add, edit, and delete click positions in-app
 - **Floating GUI**: Draggable overlay window that doesn't block other apps
 - **Adjustable Speed**: Default 100ms (10 clicks/second), customizable down to 50ms
