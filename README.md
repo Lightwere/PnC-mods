@@ -38,20 +38,9 @@ Automated clicking tool with customizable presets and draggable floating window.
 3. Grant required permissions when prompted
 4. Enable accessibility service for auto-clicker
 
-## Build from Source
-```bash
-cd "PnCutils - source"
-$env:JAVA_HOME="C:\Program Files\Eclipse Adoptium\jdk-17.0.17.10-hotspot"
-.\gradlew.bat assembleDebug
-```
-
-**Requirements:**
-- JDK 17 (Eclipse Adoptium recommended)
-- Android SDK with Build Tools 34.0.0
-
 ## Usage
 
-### File Swapper
+### Transparent tiles
 1. *optional* Tap "Pick File (SAF)" to select the target game file (usual path `/storage/emulated/0/Android/data/com.global.tmslg/files/ABAsset/`) will need to do it only once
 2. Tap "Replace File" to swap with the bundled version
 3. Tap "Restore Original" to revert changes
@@ -70,12 +59,22 @@ $env:JAVA_HOME="C:\Program Files\Eclipse Adoptium\jdk-17.0.17.10-hotspot"
 
 You can manually edit `click_presets.json` to add/modify presets.
 
+## Build from Source
+```bash
+cd "PnCutils - source"
+$env:JAVA_HOME="C:\Program Files\Eclipse Adoptium\jdk-17.0.17.10-hotspot"
+.\gradlew.bat assembleDebug
+```
+
+**Requirements:**
+- JDK 17 (Eclipse Adoptium recommended)
+- Android SDK with Build Tools 34.0.0
+
 ## Technical Details
 - **Min SDK**: 24 (Android 7.0)
 - **Target SDK**: 34 (Android 14)
 - **Architecture**: Services-based with floating overlay UI
 - **Click Method**: Accessibility Service gesture dispatch API
-
 
 ## TODO list:
 - **Automatic Custom Avatar Maker** (*might be impossible on stock Android phones*)
