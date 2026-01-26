@@ -4,13 +4,15 @@ A dual-purpose (for now) Android utility app for Puzzle & Conquest
 
 ## Features
 
-### 📁 File Swapper
-Replace game asset files with bundled versions while keeping backups for easy restoration.
+### Transparent tiles
+Used in Matching Master (this mahjong style game).
+Replaces game asset files with bundled versions while keeping backups for easy restoration.
 - Uses Storage Access Framework (SAF) for safe file operations
 - Automatically creates backup file
 - Easy to use, only one click
 
-### 🖱️ Auto-Clicker
+### Auto-Clicker
+Self explanatory
 Automated clicking tool with customizable presets and draggable floating window.
 - **Preset Management**: Add, edit, and delete click positions in-app
 - **Floating GUI**: Draggable overlay window that doesn't block other apps
@@ -51,7 +53,7 @@ $env:JAVA_HOME="C:\Program Files\Eclipse Adoptium\jdk-17.0.17.10-hotspot"
 ## Usage
 
 ### File Swapper
-1. Tap "Pick File (SAF)" to select the target game file
+1. **OPTIONAL** Tap "Pick File (SAF)" to select the target game file (usual path `/storage/emulated/0/Android/data/com.global.tmslg/files/ABAsset/`) will need to do it only once
 2. Tap "Replace File" to swap with the bundled version
 3. Tap "Restore Original" to revert changes
 
