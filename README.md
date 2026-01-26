@@ -1,29 +1,31 @@
 # PnC-mods
 
-A dual-purpose Android utility app for "Puzzle & Conquest" game modifications.
+A dual-purpose (for now) Android utility app for Puzzle & Conquest
 
 ## Features
 
-### 📁 File Swapper
-Replace game asset files with bundled versions while keeping backups for easy restoration.
+### Transparent tiles
+Used in Matching Master (this mahjong style game).
+Replaces game asset files with bundled versions while keeping backups for easy restoration.
 - Uses Storage Access Framework (SAF) for safe file operations
-- Automatic backup creation
-- One-click restore functionality
+- Automatically creates backup file
+- Easy to use, only one click
 
-### 🖱️ Auto-Clicker
+### Auto-Clicker
+Self explanatory
 Automated clicking tool with customizable presets and draggable floating window.
 - **Preset Management**: Add, edit, and delete click positions in-app
 - **Floating GUI**: Draggable overlay window that doesn't block other apps
 - **Adjustable Speed**: Default 100ms (10 clicks/second), customizable down to 50ms
 - **Collapsible Interface**: Minimize to stay out of the way
-- **Persistent Storage**: Presets saved to `/sdcard/PnCmod/click_presets.json` for easy manual editing
+- **Persistent Storage**: Presets saved to `/DEFAULT-APP-LOCATION/PnCmod/click_presets.json` for easy manual editing
 
 #### Default Presets:
-- Helps - 1st slot (920, 410)
-- Helps - 2nd slot (920, 620)
-- Helps - 3rd slot (920, 830)
-- Heal (910, 2145)
-- Train+speedup (700, 2215)
+- Helps - 1st slot - no building or research ongoing
+- Helps - 2nd slot - one, either building or research ongoing
+- Helps - 3rd slot - two, like research and building or x2 building
+- Heal - set for healing troops in infirmary
+- Train+speedup - clicks button for training and using speedups to train troops (recommended to use 1000 delay when low on resources, speedups etc.)
 
 ## Requirements
 - **Android 7.0+** (API 24+)
@@ -32,8 +34,8 @@ Automated clicking tool with customizable presets and draggable floating window.
 - **Storage Permissions** (for file operations)
 
 ## Installation
-1. Download the latest `PnCmod-debug.apk` from releases
-2. Install on your device
+1. Download the latest `PnCmod.apk` from releases LINK
+2. Install on Your device
 3. Grant required permissions when prompted
 4. Enable accessibility service for auto-clicker
 
@@ -51,7 +53,7 @@ $env:JAVA_HOME="C:\Program Files\Eclipse Adoptium\jdk-17.0.17.10-hotspot"
 ## Usage
 
 ### File Swapper
-1. Tap "Pick File (SAF)" to select the target game file
+1. **OPTIONAL** Tap "Pick File (SAF)" to select the target game file (usual path `/storage/emulated/0/Android/data/com.global.tmslg/files/ABAsset/`) will need to do it only once
 2. Tap "Replace File" to swap with the bundled version
 3. Tap "Restore Original" to revert changes
 
