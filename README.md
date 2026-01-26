@@ -6,14 +6,14 @@ A dual-purpose (for now) Android utility app for Puzzle & Conquest
 
 ### Transparent tiles
 Used in Matching Master (this mahjong style game).
-Replaces game asset files with bundled versions while keeping backups for easy restoration.
-- Uses Storage Access Framework (SAF) for safe file operations
-- Automatically creates backup file
-- Easy to use, only one click
+- Replaces game asset files with bundled versions while keeping backups for easy restoration.
+- **Storage Access Framework**: Safe file operations without broad permissions
+- **Automatic Backup**: Creates backup file before replacing
+- **One-Click Operation**: Easy to use with single tap
 
 ### Auto-Clicker
 Self explanatory
-Automated clicking tool with customizable presets and draggable floating window.
+- Automated clicking tool with customizable presets and draggable floating window.
 - **Preset Management**: Add, edit, and delete click positions in-app
 - **Floating GUI**: Draggable overlay window that doesn't block other apps
 - **Adjustable Speed**: Default 100ms (10 clicks/second), customizable down to 50ms
