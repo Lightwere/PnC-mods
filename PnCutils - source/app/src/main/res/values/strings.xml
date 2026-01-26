@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PnCUtils</string>
+    <string name="accessibility_service_description">PnCUtils Auto-Clicker service for automated clicking at preset locations. Enable this to use the auto-clicker feature.</string>
+</resources>

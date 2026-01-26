@@ -12,13 +12,12 @@ Used in Matching Master (this mahjong style game).
 - **One-Click Operation**: Easy to use with single tap
 
 ### Auto-Clicker
-Self explanatory
-- Automated clicking tool with customizable presets and draggable floating window.
+Automated clicking tool with customizable presets and draggable floating window.
 - **Preset Management**: Add, edit, and delete click positions in-app
 - **Floating GUI**: Draggable overlay window that doesn't block other apps
 - **Adjustable Speed**: Default 100ms (10 clicks/second), customizable down to 50ms
 - **Collapsible Interface**: Minimize to stay out of the way
-- **Persistent Storage**: Presets saved to `/DEFAULT-APP-LOCATION/PnCmod/click_presets.json` for easy manual editing
+- **Persistent Storage**: Presets saved to `/sdcard/PnCUtils/click_presets.json` for easy manual editing
 
 #### Default Presets:
 - Helps - 1st slot - no building or research ongoing
@@ -34,14 +33,14 @@ Self explanatory
 - **Storage Permissions** (for file operations)
 
 ## Installation
-1. Download the latest `PnCmod.apk` from releases LINK
+1. Download the latest `PnCUtils.apk` from releases LINK
 2. Install on Your device
 3. Grant required permissions when prompted
 4. Enable accessibility service for auto-clicker
 
 ## Build from Source
 ```bash
-cd "PnCmod - source"
+cd "PnCutils - source"
 $env:JAVA_HOME="C:\Program Files\Eclipse Adoptium\jdk-17.0.17.10-hotspot"
 .\gradlew.bat assembleDebug
 ```
@@ -66,8 +65,8 @@ $env:JAVA_HOME="C:\Program Files\Eclipse Adoptium\jdk-17.0.17.10-hotspot"
 6. Drag the window by touching and moving the header
 
 ## File Locations
-- **Presets**: `/sdcard/PnCmod/click_presets.json`
-- **Backups**: `/sdcard/PnCmod/original_backup.bin`
+- **Presets**: `/sdcard/PnCUtils/click_presets.json`
+- **Backups**: `/sdcard/PnCUtils/original_backup.bin`
 
 You can manually edit `click_presets.json` to add/modify presets.
 

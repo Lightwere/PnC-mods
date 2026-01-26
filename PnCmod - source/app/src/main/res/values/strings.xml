@@ -1,4 +1,0 @@
-<resources>
-    <string name="app_name">PnCmod</string>
-    <string name="accessibility_service_description">PnCmod Auto-Clicker service for automated clicking at preset locations. Enable this to use the auto-clicker feature.</string>
-</resources>

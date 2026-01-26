@@ -15,14 +15,14 @@ PnC-mods is a dual-purpose Android utility app featuring:
 
 ### Data Flow
 - **File Operations**: Uses Storage Access Framework (SAF) for safe file access; stores target URI in SharedPreferences
-- **Auto-Clicker**: Loads presets from `/sdcard/PnCmod/click_presets.json` (device storage) with fallback to embedded assets
+- **Auto-Clicker**: Loads presets from `/sdcard/PnCUtils/click_presets.json` (device storage) with fallback to embedded assets
 - **Floating Window**: Maintains state across minimize/expand and dynamically toggles `FLAG_NOT_FOCUSABLE` for focus management
 
 ## Developer Workflows
 
 ### Building
 ```bash
-cd "PnCmod - source"
+cd "PnCutils - source"
 $env:JAVA_HOME="C:\Program Files\Eclipse Adoptium\jdk-17.0.17.10-hotspot"
 .\gradlew.bat assembleDebug
 ```
@@ -30,7 +30,7 @@ $env:JAVA_HOME="C:\Program Files\Eclipse Adoptium\jdk-17.0.17.10-hotspot"
 ### Wireless ADB Deployment
 ```bash
 adb connect 192.168.0.136:5555  # Device IP
-adb -s 192.168.0.136:5555 install -r app/build/outputs/apk/debug/PnCmod-debug.apk
+adb -s 192.168.0.136:5555 install -r app/build/outputs/apk/debug/PnCUtils-debug.apk
 ```
 
 ### Testing
@@ -49,8 +49,8 @@ adb -s 192.168.0.136:5555 install -r app/build/outputs/apk/debug/PnCmod-debug.ap
 
 ### File Organization
 - **Assets**: `app/src/main/assets/click_presets.json` (embedded defaults)
-- **External Storage**: `/sdcard/PnCmod/click_presets.json` (user editable, persists across app updates)
-- **Backup**: `/sdcard/PnCmod/original_backup.bin` (file swapper backup)
+- **External Storage**: `/sdcard/PnCUtils/click_presets.json` (user editable, persists across app updates)
+- **Backup**: `/sdcard/PnCUtils/original_backup.bin` (file swapper backup)
 
 ### Focus Management (Critical for Floating Window)
 - Window starts with `FLAG_NOT_FOCUSABLE` to allow touches through
@@ -89,7 +89,7 @@ adb -s 192.168.0.136:5555 install -r app/build/outputs/apk/debug/PnCmod-debug.ap
 2. Toggle edit section with `+`
 3. Fill Name, X, Y coordinates
 4. Tap "Add or Update Preset"
-5. Preset saved to `/sdcard/PnCmod/click_presets.json`
+5. Preset saved to `/sdcard/PnCUtils/click_presets.json`
 
 ### Implementing a New Feature
 - Register in AndroidManifest if it's a Service/Receiver
@@ -110,14 +110,14 @@ User touches EditText
 ```
 
 ## Important Notes
-- **External Storage Path**: All user files go to `/sdcard/PnCmod/` for easy manual editing
+- **External Storage Path**: All user files go to `/sdcard/PnCUtils/` for easy manual editing
 - **Default Click Speed**: 100ms (10 clicks/second)
 - **Min SDK**: 24, Target SDK: 34
-- **APK Output**: `PnCmod-{variant}.apk` (e.g., PnCmod-debug.apk)
+- **APK Output**: `PnCUtils-{variant}.apk` (e.g., PnCUtils-debug.apk)
 - **Icon**: Custom wrench PNG in all density folders
 
 ## Troubleshooting
 - **Icon not updating**: Delete `mipmap-anydpi-v26` folder if it causes adaptive icon issues
-- **Presets not loading**: Check `/sdcard/PnCmod/` for stale files; app will copy from assets if missing
+- **Presets not loading**: Check `/sdcard/PnCUtils/` for stale files; app will copy from assets if missing
 - **Floating window unresponsive**: Verify `FLAG_NOT_FOCUSABLE` is being restored after editing
 - **Build failures**: Ensure `JAVA_HOME` points to Eclipse Adoptium JDK 17
