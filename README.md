@@ -55,7 +55,7 @@ $env:JAVA_HOME="C:\Program Files\Eclipse Adoptium\jdk-17.0.17.10-hotspot"
 ## Usage
 
 ### File Swapper
-1. **OPTIONAL** Tap "Pick File (SAF)" to select the target game file (usual path /storage/emulated/0/Android/data/com.global.tmslg/files/ABAsset/) will need to do it only once
+1. **OPTIONAL** Tap "Pick File (SAF)" to select the target game file (usual path '/storage/emulated/0/Android/data/com.global.tmslg/files/ABAsset/') will need to do it only once
 2. Tap "Replace File" to swap with the bundled version
 3. Tap "Restore Original" to revert changes
 
