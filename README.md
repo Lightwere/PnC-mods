@@ -1,16 +1,18 @@
 # PnC-mods
 
-A dual-purpose Android utility app for "Puzzle & Conquest" game modifications.
+A dual(for now)-purpose Android utility app for Puzzle & Conquest
 
 ## Features
 
-### 📁 File Swapper
-Replace game asset files with bundled versions while keeping backups for easy restoration.
+### Transparent tiles
+Used in Matching Master (this mahjong style game)
+Replaces game asset files with bundled versions while keeping backups for easy restoration.
 - Uses Storage Access Framework (SAF) for safe file operations
-- Automatic backup creation
-- One-click restore functionality
+- Automatically creates backup file
+- Easy to use, only one click
 
-### 🖱️ Auto-Clicker
+### Auto-Clicker
+Self explanatory
 Automated clicking tool with customizable presets and draggable floating window.
 - **Preset Management**: Add, edit, and delete click positions in-app
 - **Floating GUI**: Draggable overlay window that doesn't block other apps
