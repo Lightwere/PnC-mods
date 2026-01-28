@@ -14,11 +14,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.animation.ValueAnimator;
 import android.graphics.Color;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
+import android.text.SpannableString;
+import android.text.util.Linkify;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -102,6 +107,12 @@ public class MainActivity extends AppCompatActivity {
         replaceButton.setOnClickListener(v -> doReplace());
         restoreButton.setOnClickListener(v -> doRestore());
         autoClickerButton.setOnClickListener(v -> launchAutoClicker());
+
+        Button createFolderButton = findViewById(R.id.createFolderButton);
+        createFolderButton.setOnClickListener(v -> createPnCUtilsFolder());
+
+        Button android13Button = findViewById(R.id.android13Button);
+        android13Button.setOnClickListener(v -> showAndroid11Tutorial());
 
         checkAndRequestPermissions();
         initializeExternalFiles();
@@ -397,5 +408,66 @@ public class MainActivity extends AppCompatActivity {
         Intent serviceIntent = new Intent(this, FloatingWindowService.class);
         startService(serviceIntent);
         toast("Auto-clicker launched");
+    }
+
+    private void createPnCUtilsFolder() {
+        try {
+            File pncutilsDir = new File(Environment.getExternalStorageDirectory(), PNCUTILS_FOLDER);
+            if (pncutilsDir.exists()) {
+                toast("Folder already exists: /sdcard/PnCUtils/");
+                updateStatus("Folder already exists");
+                return;
+            }
+            
+            if (pncutilsDir.mkdirs()) {
+                toast("Folder created: /sdcard/PnCUtils/");
+                updateStatus("Folder created successfully");
+            } else {
+                toast("Failed to create folder");
+                updateStatus("Error creating folder");
+            }
+        } catch (Exception e) {
+            toast("Error: " + e.getMessage());
+            updateStatus("Error: " + e.getMessage());
+        }
+    }
+
+    private void showAndroid11Tutorial() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Android 11+ Tutorial");
+        
+        String tutorial = "Step-by-step workflow:\n\n" +
+                "1. Press 'Create PnCUtils Folder' button\n\n" +
+                "2. Install ZArchiver (if not installed):\n" +
+                "   https://play.google.com/store/apps/details?id=ru.zdevs.zarchiver\n\n" +
+                "3. Using ZArchiver:\n" +
+                "   - Navigate to /Android/data/com.global.tmslg/files/ABAsset/\n" +
+                "   - Copy 1b98f4343ed035646b53cccdb7bd3811.assetbundles\n" +
+                "   - Paste to /sdcard/PnCUtils/\n\n" +
+                "4. In this app:\n" +
+                "   - Tap 'Pick File (SAF)'\n" +
+                "   - Select the .assetbundle in /sdcard/PnCUtils/\n" +
+                "   - Tap 'Replace File' to modify it\n\n" +
+                "5. Using ZArchiver:\n" +
+                "   - Copy modified file from /sdcard/PnCUtils/\n" +
+                "   - Paste to /Android/data/com.global.tmslg/files/ABAsset/\n" +
+                "   - Overwrite when asked\n\n" +
+                "To restore:\n" +
+                "   - Tap 'Restore Original' in this app\n" +
+                "   - Copy restored file from /sdcard/PnCUtils/ back to game folder";
+        
+        builder.setMessage(tutorial);
+        builder.setPositiveButton("OK", null);
+        
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        
+        // Make links clickable
+        TextView messageView = dialog.findViewById(android.R.id.message);
+        if (messageView != null) {
+            messageView.setAutoLinkMask(Linkify.WEB_URLS);
+            messageView.setMovementMethod(LinkMovementMethod.getInstance());
+            Linkify.addLinks(messageView, Linkify.WEB_URLS);
+        }
     }
 }

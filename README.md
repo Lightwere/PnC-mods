@@ -38,6 +38,13 @@ Automated clicking tool with customizable presets and draggable floating window.
 3. Grant required permissions when prompted
 4. Enable accessibility service for auto-clicker
 
+### Android 11+ File Access Note
+On Android 11+, the system restricts access to `/Android/data/` folders. The File Swapper feature requires a manual workflow using a file manager like ZArchiver.
+
+**→ [Read the Android 11+ Permissions Guide](ANDROID_11_PERMISSIONS_GUIDE.md) for step-by-step instructions**
+
+This is a system limitation, not a bug. The guide explains how to work around it seamlessly.
+
 ## Usage
 
 ### Transparent tiles

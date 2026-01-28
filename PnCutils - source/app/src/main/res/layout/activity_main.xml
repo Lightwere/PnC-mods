@@ -68,6 +68,21 @@
                     android:text="Restore Original"
                     android:layout_marginTop="8dp" />
 
+                <Button
+                    android:id="@+id/createFolderButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Create PnCUtils Folder"
+                    android:layout_marginTop="8dp" />
+
+                <Button
+                    android:id="@+id/android13Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TUTORIAL FOR ANDROID 11+"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="#FF9800" />
+
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
