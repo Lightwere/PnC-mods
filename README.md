@@ -33,7 +33,7 @@ Automated clicking tool with customizable presets and draggable floating window.
 - **Storage Permissions** (for file operations)
 
 ## Installation
-1. Download the latest [PnCUtils.apk](https://github.com/Lightwere/PnC-mods/releases/download/PnCutils/PnCUtils.apk) from releases
+1. Download the latest [PnCUtils.apk](https://github.com/Lightwere/PnC-mods/releases/download/v1.0.1/PnCUtils.v1.0.1.apk) from releases
 2. Install on Your device
 3. Grant required permissions when prompted
 4. Enable accessibility service for auto-clicker
